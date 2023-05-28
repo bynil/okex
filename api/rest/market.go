@@ -34,7 +34,10 @@ func (c *Market) GetTickers(req requests.GetTickers) (response responses.Ticker,
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetTicker
@@ -51,7 +54,10 @@ func (c *Market) GetTicker(req requests.GetTickers) (response responses.Ticker, 
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetIndexTickers
@@ -68,7 +74,10 @@ func (c *Market) GetIndexTickers(req requests.GetIndexTickers) (response respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOrderBook
@@ -85,7 +94,10 @@ func (c *Market) GetOrderBook(req requests.GetOrderBook) (response responses.Ord
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetCandlesticks
@@ -102,7 +114,10 @@ func (c *Market) GetCandlesticks(req requests.GetCandlesticks) (response respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetCandlesticksHistory
@@ -119,7 +134,10 @@ func (c *Market) GetCandlesticksHistory(req requests.GetCandlesticks) (response 
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetIndexCandlesticks
@@ -136,7 +154,10 @@ func (c *Market) GetIndexCandlesticks(req requests.GetCandlesticks) (response re
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetMarkPriceCandlesticks
@@ -153,7 +174,10 @@ func (c *Market) GetMarkPriceCandlesticks(req requests.GetCandlesticks) (respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetTrades
@@ -170,7 +194,10 @@ func (c *Market) GetTrades(req requests.GetTrades) (response responses.Trade, er
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // Get24HTotalVolume
@@ -186,7 +213,10 @@ func (c *Market) Get24HTotalVolume() (response responses.TotalVolume24H, err err
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetIndexComponents
@@ -203,5 +233,8 @@ func (c *Market) GetIndexComponents(req requests.GetIndexComponents) (response r
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }

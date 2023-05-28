@@ -34,7 +34,10 @@ func (c *PublicData) GetInstruments(req requests.GetInstruments) (response respo
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetDeliveryExerciseHistory
@@ -51,7 +54,10 @@ func (c *PublicData) GetDeliveryExerciseHistory(req requests.GetDeliveryExercise
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOpenInterest
@@ -68,7 +74,10 @@ func (c *PublicData) GetOpenInterest(req requests.GetOpenInterest) (response res
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetLimitPrice
@@ -85,7 +94,10 @@ func (c *PublicData) GetLimitPrice(req requests.GetLimitPrice) (response respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOptionMarketData
@@ -102,7 +114,10 @@ func (c *PublicData) GetOptionMarketData(req requests.GetOptionMarketData) (resp
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetEstimatedDeliveryExercisePrice
@@ -119,7 +134,10 @@ func (c *PublicData) GetEstimatedDeliveryExercisePrice(req requests.GetEstimated
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetDiscountRateAndInterestFreeQuota
@@ -136,7 +154,10 @@ func (c *PublicData) GetDiscountRateAndInterestFreeQuota(req requests.GetDiscoun
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetSystemTime
@@ -152,7 +173,10 @@ func (c *PublicData) GetSystemTime() (response responses.GetSystemTime, err erro
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetLiquidationOrders
@@ -169,7 +193,10 @@ func (c *PublicData) GetLiquidationOrders(req requests.GetLiquidationOrders) (re
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetMarkPrice
@@ -188,7 +215,10 @@ func (c *PublicData) GetMarkPrice(req requests.GetMarkPrice) (response responses
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetPositionTiers
@@ -205,7 +235,10 @@ func (c *PublicData) GetPositionTiers(req requests.GetPositionTiers) (response r
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetInterestRateAndLoanQuota
@@ -221,7 +254,10 @@ func (c *PublicData) GetInterestRateAndLoanQuota() (response responses.GetIntere
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetUnderlying
@@ -237,5 +273,8 @@ func (c *PublicData) GetUnderlying(req requests.GetUnderlying) (response respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }

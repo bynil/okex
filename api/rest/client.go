@@ -122,7 +122,10 @@ func (c *ClientRest) Status(req requests.Status) (response responses.Status, err
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 func (c *ClientRest) sign(method, path, body string) (string, string) {

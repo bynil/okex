@@ -40,6 +40,9 @@ func (c *Trade) PlaceOrder(req []requests.PlaceOrder) (response responses.PlaceO
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
 
 	return
 }
@@ -58,6 +61,9 @@ func (c *Trade) PlaceMultipleOrders(req []requests.PlaceOrder) (response respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
 
 	return
 }
@@ -86,7 +92,10 @@ func (c *Trade) CandleOrder(req []requests.CancelOrder) (response responses.Plac
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // AmendOrder
@@ -113,7 +122,10 @@ func (c *Trade) AmendOrder(req []requests.OrderList) (response responses.AmendOr
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // ClosePosition
@@ -130,7 +142,10 @@ func (c *Trade) ClosePosition(req requests.ClosePosition) (response responses.Cl
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOrderDetail
@@ -147,7 +162,10 @@ func (c *Trade) GetOrderDetail(req requests.OrderDetails) (response responses.Or
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOrderList
@@ -164,7 +182,10 @@ func (c *Trade) GetOrderList(req requests.OrderList) (response responses.OrderLi
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOrderHistory
@@ -187,7 +208,10 @@ func (c *Trade) GetOrderHistory(req requests.OrderList, arch bool) (response res
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetTransactionDetails
@@ -211,7 +235,10 @@ func (c *Trade) GetTransactionDetails(req requests.TransactionDetails, arch bool
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // PlaceAlgoOrder
@@ -230,6 +257,9 @@ func (c *Trade) PlaceAlgoOrder(req requests.PlaceAlgoOrder) (response responses.
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
 
 	return
 }
@@ -248,6 +278,9 @@ func (c *Trade) CancelAlgoOrder(req requests.CancelAlgoOrder) (response response
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
 
 	return
 }
@@ -268,6 +301,9 @@ func (c *Trade) CancelAdvanceAlgoOrder(req requests.CancelAlgoOrder) (response r
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
 
 	return
 }
@@ -297,6 +333,9 @@ func (c *Trade) GetAlgoOrderList(req requests.AlgoOrderList, arch bool) (respons
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
 
 	return
 }
