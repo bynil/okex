@@ -33,7 +33,10 @@ func (c *TradeData) GetSupportCoin() (response responses.GetSupportCoin, err err
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetTakerVolume
@@ -50,7 +53,10 @@ func (c *TradeData) GetTakerVolume(req requests.GetTakerVolume) (response respon
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetMarginLendingRatio
@@ -67,7 +73,10 @@ func (c *TradeData) GetMarginLendingRatio(req requests.GetRatio) (response respo
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetLongShortRatio
@@ -84,7 +93,10 @@ func (c *TradeData) GetLongShortRatio(req requests.GetRatio) (response responses
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetContractsOpenInterestAndVolume
@@ -101,7 +113,10 @@ func (c *TradeData) GetContractsOpenInterestAndVolume(req requests.GetRatio) (re
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOptionsOpenInterestAndVolume
@@ -118,7 +133,10 @@ func (c *TradeData) GetOptionsOpenInterestAndVolume(req requests.GetRatio) (resp
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetPutCallRatio
@@ -135,7 +153,10 @@ func (c *TradeData) GetPutCallRatio(req requests.GetRatio) (response responses.G
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOpenInterestAndVolumeExpiry
@@ -152,7 +173,10 @@ func (c *TradeData) GetOpenInterestAndVolumeExpiry(req requests.GetRatio) (respo
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetOpenInterestAndVolumeStrike
@@ -169,7 +193,10 @@ func (c *TradeData) GetOpenInterestAndVolumeStrike(req requests.GetOpenInterestA
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetTakerFlow
@@ -186,5 +213,8 @@ func (c *TradeData) GetTakerFlow(req requests.GetRatio) (response responses.GetT
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }

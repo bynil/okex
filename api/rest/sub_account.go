@@ -35,7 +35,10 @@ func (c *SubAccount) ViewList(req requests.ViewList) (response responses.ViewLis
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // CreateAPIKey
@@ -55,7 +58,10 @@ func (c *SubAccount) CreateAPIKey(req requests.CreateAPIKey) (response responses
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // QueryAPIKey
@@ -72,7 +78,10 @@ func (c *SubAccount) QueryAPIKey(req requests.QueryAPIKey) (response responses.A
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // ResetAPIKey
@@ -92,7 +101,10 @@ func (c *SubAccount) ResetAPIKey(req requests.CreateAPIKey) (response responses.
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // DeleteAPIKey
@@ -109,7 +121,10 @@ func (c *SubAccount) DeleteAPIKey(req requests.DeleteAPIKey) (response responses
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // GetBalance
@@ -127,7 +142,10 @@ func (c *SubAccount) GetBalance(req requests.GetBalance) (response responses.Get
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // HistoryTransfer
@@ -144,7 +162,10 @@ func (c *SubAccount) HistoryTransfer(req requests.HistoryTransfer) (response res
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
 
 // ManageTransfers
@@ -161,5 +182,8 @@ func (c *SubAccount) ManageTransfers(req requests.ManageTransfers) (response res
 	defer res.Body.Close()
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
-	return
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
 }
