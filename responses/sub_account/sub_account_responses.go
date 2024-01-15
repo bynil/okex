@@ -19,6 +19,10 @@ type (
 		responses.Basic
 		Balances []*account.Balance `json:"data,omitempty"`
 	}
+	GetAssetBalance struct {
+		responses.Basic
+		Balances []*account.AssetBalance `json:"data,omitempty"`
+	}
 	HistoryTransfer struct {
 		responses.Basic
 		HistoryTransfers []*models.HistoryTransfer `json:"data,omitempty"`

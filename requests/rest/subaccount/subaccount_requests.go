@@ -30,6 +30,10 @@ type (
 	GetBalance struct {
 		SubAcct string `json:"subAcct"`
 	}
+	GetAssetBalance struct {
+		SubAcct string   `json:"subAcct"`
+		Ccy     []string `json:"ccy,omitempty"`
+	}
 	GetMaxWithdrawal struct {
 		SubAcct string   `json:"subAcct"`
 		Ccy     []string `json:"ccy,omitempty"`

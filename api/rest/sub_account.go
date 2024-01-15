@@ -148,6 +148,22 @@ func (c *SubAccount) GetBalance(req requests.GetBalance) (response responses.Get
 	return response, response.Validate()
 }
 
+func (c *SubAccount) GetAssetBalance(req requests.GetAssetBalance) (response responses.GetAssetBalance, err error) {
+	p := "/api/v5/asset/subaccount/balances"
+	m := okex.S2M(req)
+	res, err := c.client.Do(http.MethodGet, p, true, m)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+	d := json.NewDecoder(res.Body)
+	err = d.Decode(&response)
+	if err != nil {
+		return
+	}
+	return response, response.Validate()
+}
+
 // HistoryTransfer
 // applies to master accounts only
 //

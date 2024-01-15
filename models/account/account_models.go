@@ -42,6 +42,12 @@ type (
 		IsoUpl        okex.JSONFloat64 `json:"isoUpl,omitempty"`
 		UTime         okex.JSONTime    `json:"uTime"`
 	}
+	AssetBalance struct {
+		Ccy       string           `json:"ccy"`
+		Bal       okex.JSONFloat64 `json:"bal"`
+		FrozenBal okex.JSONFloat64 `json:"frozenBal"`
+		AvailBal  okex.JSONFloat64 `json:"availBal"`
+	}
 	Position struct {
 		InstID      string              `json:"instId"`
 		PosCcy      string              `json:"posCcy,omitempty"`
