@@ -187,3 +187,23 @@ func (c *SubAccount) ManageTransfers(req requests.ManageTransfers) (response res
 	}
 	return response, response.Validate()
 }
+
+func (c *SubAccount) GetMaxWithdrawals(req requests.GetMaxWithdrawal) (response responses.GetMaxWithdrawals, err error) {
+	p := "/api/v5/account/subaccount/max-withdrawal"
+	m := okex.S2M(req)
+	if len(req.Ccy) > 0 {
+		m["ccy"] = strings.Join(req.Ccy, ",")
+	}
+	res, err := c.client.Do(http.MethodGet, p, true, m)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+	d := json.NewDecoder(res.Body)
+	err = d.Decode(&response)
+	if err != nil {
+		return response, response.Validate()
+	}
+
+	return
+}

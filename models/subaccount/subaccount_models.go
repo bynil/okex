@@ -33,4 +33,11 @@ type (
 	Transfer struct {
 		TransID okex.JSONInt64 `json:"transId"`
 	}
+	MaxWithdrawal struct {
+		Ccy               string           `json:"ccy"`
+		MaxWd             okex.JSONFloat64 `json:"maxWd"`
+		MaxWdEx           okex.JSONFloat64 `json:"maxWdEx"`
+		SpotOffsetMaxWd   okex.JSONFloat64 `json:"spotOffsetMaxWd"`
+		SpotOffsetMaxWdEx okex.JSONFloat64 `json:"spotOffsetMaxWdEx"`
+	}
 )

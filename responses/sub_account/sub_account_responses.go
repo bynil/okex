@@ -27,4 +27,8 @@ type (
 		responses.Basic
 		Transfers []*models.Transfer `json:"data,omitempty"`
 	}
+	GetMaxWithdrawals struct {
+		responses.Basic
+		MaxWithdrawals []*models.MaxWithdrawal `json:"data,omitempty"`
+	}
 )

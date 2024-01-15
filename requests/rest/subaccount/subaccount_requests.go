@@ -30,6 +30,10 @@ type (
 	GetBalance struct {
 		SubAcct string `json:"subAcct"`
 	}
+	GetMaxWithdrawal struct {
+		SubAcct string   `json:"subAcct"`
+		Ccy     []string `json:"ccy"`
+	}
 	HistoryTransfer struct {
 		Ccy     string            `json:"ccy,omitempty"`
 		SubAcct string            `json:"subAcct,omitempty"`
