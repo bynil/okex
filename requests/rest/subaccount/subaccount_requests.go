@@ -32,7 +32,7 @@ type (
 	}
 	GetMaxWithdrawal struct {
 		SubAcct string   `json:"subAcct"`
-		Ccy     []string `json:"ccy"`
+		Ccy     []string `json:"ccy,omitempty"`
 	}
 	HistoryTransfer struct {
 		Ccy     string            `json:"ccy,omitempty"`
