@@ -30,7 +30,7 @@ func (c *Trade) PlaceOrder(req []requests.PlaceOrder) (response responses.PlaceO
 	tmp = req[0]
 	if len(req) > 1 {
 		tmp = req
-		p = "/api/trade/batch-orders"
+		p = "/api/v5/trade/batch-orders"
 	}
 	m := okex.S2M(tmp)
 	res, err := c.client.Do(http.MethodPost, p, true, m)
@@ -84,7 +84,7 @@ func (c *Trade) CandleOrder(req []requests.CancelOrder) (response responses.Plac
 	tmp = req[0]
 	if len(req) > 1 {
 		tmp = req
-		p = "/api/trade/cancel-batch-orders"
+		p = "/api/v5/trade/cancel-batch-orders"
 	}
 	m := okex.S2M(tmp)
 	res, err := c.client.Do(http.MethodPost, p, true, m)
