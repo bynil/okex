@@ -41,8 +41,9 @@ func (c *Trade) PlaceOrder(req []requests.PlaceOrder) (response responses.PlaceO
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }
@@ -62,8 +63,9 @@ func (c *Trade) PlaceMultipleOrders(req []requests.PlaceOrder) (response respons
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }
@@ -258,8 +260,9 @@ func (c *Trade) PlaceAlgoOrder(req requests.PlaceAlgoOrder) (response responses.
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }
@@ -279,8 +282,9 @@ func (c *Trade) CancelAlgoOrder(req requests.CancelAlgoOrder) (response response
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }
@@ -302,8 +306,9 @@ func (c *Trade) CancelAdvanceAlgoOrder(req requests.CancelAlgoOrder) (response r
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }
@@ -334,8 +339,9 @@ func (c *Trade) GetAlgoOrderList(req requests.AlgoOrderList, arch bool) (respons
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }

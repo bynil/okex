@@ -218,8 +218,9 @@ func (c *SubAccount) GetMaxWithdrawals(req requests.GetMaxWithdrawal) (response 
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }

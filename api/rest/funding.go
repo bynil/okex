@@ -37,8 +37,9 @@ func (c *Funding) GetCurrencies() (response responses.GetCurrencies, err error) 
 	d := json.NewDecoder(res.Body)
 	err = d.Decode(&response)
 	if err != nil {
-		return response, response.Validate()
+		return
 	}
+	return response, response.Validate()
 
 	return
 }
